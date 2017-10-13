@@ -20,6 +20,7 @@ test('example screenshot', () => {
     const nightmare = new Nightmare()
     nightmare.use(NightmareCSS(options))
     return nightmare
+        .goto('http://google.com')
         .screenshotCompare('name-1')
         .screenshotCompare('name-2')
         .screenshotCompare('name-3')
