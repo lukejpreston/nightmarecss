@@ -1,5 +1,5 @@
 import Nightmare from 'nightmare'
-import NightmareCSS from '.'
+import NightmareCSS from './nightmarecss'
 
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 30 * 1000
 
@@ -16,6 +16,6 @@ afterEach(() => {
 test('checking', () => {
   return nightmare
     .goto('http://google.com')
-    .screenshotCompare('google', '#lga')
+    .screenshotCompare('google')
     .compareAll()
 })

@@ -20,13 +20,17 @@ test('example screenshot', () => {
     const nightmare = new Nightmare()
     nightmare.use(NightmareCSS(options))
     return nightmare
-        .screenshotCompare('name')
+        .screenshotCompare('name-1')
+        .screenshotCompare('name-2')
+        .screenshotCompare('name-3')
         .end()
         .compareAll() // we will call nightmare.end() for you if you haven't called it before this, so you will not be able to do anything after compareAll
 })
 ```
 
 these are the defualt options
+
+see [Resemble.js](https://github.com/Huddle/Resemble.js) for more details
 
 ```js
 {
