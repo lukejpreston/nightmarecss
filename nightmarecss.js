@@ -28,7 +28,7 @@ const compare = ({fsOptions, name, tolerance, rebase, resembleOptions}) => {
   })
 }
 
-export default (options = {}) => {
+module.exports = (options = {}) => {
   const fsOptions = {
     screenshotDir: path.resolve(process.cwd(), options.screenshotRoot || 'screenshots'),
     diffExtension: options.diffExtension || 'diff',
