@@ -62,14 +62,32 @@ see [Resemble.js](https://github.com/Huddle/Resemble.js) for more details
 }
 ```
 
+## Jasmine and Jest
+
+you might want to put 
+
+```js
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 30 * 1000
+```
+
+in your tests, depends on how quick your machine is if you need it but makes tests a little more stable for slow machines
+
 ## Developing
 
-install, test and lint
+install, test, lint, dist
 
-```
+```bash
 npm i
 npx jest
-npx eslint ./*.js
+npx eslint ./nightmare*.js
+npx babel nightmarecss.js --out-file index.js
+```
+
+you can also use `npm`
+
+```bash
+npm test
+npm dist
 ```
 
 ## Missing selector

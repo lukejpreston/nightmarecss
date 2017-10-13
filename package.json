@@ -1,14 +1,21 @@
 {
   "name": "nightmarecss",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Nightmarecss plugin similar to phantomcss",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "eslint ./nightmare*.js && jest",
+    "dist": "babel nightmarecss.js --out-file index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "nightmare",
+    "nightmarecss",
+    "screenshot",
+    "phantomcss",
+    "backstop"
+  ],
+  "author": "Luke Preston <lukejpreston@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "fs-extra": "^4.0.2",
     "nightmare": "^2.10.0",
@@ -17,6 +24,7 @@
     "resemblejs": "^2.2.6"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-jest": "^21.2.0",
     "babel-preset-env": "^1.6.0",
     "eslint": "^4.8.0",
