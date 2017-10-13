@@ -4,6 +4,7 @@
     ],
     "env": {
         "browser": true,
-        "jest": true
+        "jest": true,
+        "jasmine": true
     }
 }

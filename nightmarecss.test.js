@@ -1,13 +1,12 @@
 import Nightmare from 'nightmare'
 import NightmareCSS from '.'
-// import fs from 'fs-extra'
-// import path from 'path'
-// import resemble from 'node-resemble-js'
+
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 30 * 1000
 
 let nightmare = null
 beforeEach(() => {
   nightmare = new Nightmare({ show: false })
-  nightmare.use(NightmareCSS)
+  nightmare.use(NightmareCSS())
 })
 
 afterEach(() => {
@@ -17,6 +16,7 @@ afterEach(() => {
 test('checking', () => {
   return nightmare
     .goto('http://google.com')
-    .screenshotCompare()
-    .end()
+    .screenshotCompare('google')
+    .screenshotCompare('loogle')
+    .compareAll()
 })
