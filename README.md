@@ -14,7 +14,9 @@ import NightmareCSS from 'nightmarecss'
 test('example screenshot', () => {
     const nightmare = new Nightmare({ show: true })
     nightmare.use(NightmareCSS)
-    return nightmare.screenshotCompare(name, options)
+    return nightmare
+        .screenshotCompare(name, options)
+        .compareAll() // we will call end for you if you haven't called it
 })
 ```
 
@@ -29,7 +31,6 @@ these are the defualt options
     latestExtension: 'latest',
 
     // nightmarecss
-    selector: '.qa-name', // optional
     tolerance: 0.05,
     rebase: false, // replaces .latest.jpg with .failure.jpg
 
