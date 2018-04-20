@@ -136,6 +136,5 @@ install, test, lint, dist
 npm i
 npm test
 npm run lint
-npm ci
 npx dist
 ```

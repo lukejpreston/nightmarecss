@@ -12,7 +12,17 @@ var _nodeResembleJs = require('node-resemble-js');
 
 var _nodeResembleJs2 = _interopRequireDefault(_nodeResembleJs);
 
+var _nightmare = require('nightmare');
+
+var _nightmare2 = _interopRequireDefault(_nightmare);
+
+var _nightmareScreenshotSelector = require('nightmare-screenshot-selector');
+
+var _nightmareScreenshotSelector2 = _interopRequireDefault(_nightmareScreenshotSelector);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_nightmare2.default.action('screenshotSelector', _nightmareScreenshotSelector2.default);
 
 var compare = function compare(_ref) {
   var fsOptions = _ref.fsOptions,
@@ -70,10 +80,10 @@ module.exports = function () {
 
   var names = [];
   return function (nightmare) {
-    nightmare.screenshotCompare = function (name) {
+    nightmare.screenshotCompare = function (name, selector) {
       names.push(name);
       var latest = _path2.default.join(fsOptions.screenshotDir, name + '.latest.png');
-      return nightmare.screenshot(latest);
+      if (selector) return nightmare.screenshotSelector({ path: latest, selector: selector });else return nightmare.screenshot(latest);
     };
 
     nightmare.compareAll = function () {

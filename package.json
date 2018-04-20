@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "ci": "eslint ./nightmare*.js && jest",
+    "ci": "eslint ./nightmare*.js && jest && npm run dist",
     "dist": "babel nightmarecss.js --out-file index.js"
   },
   "keywords": [
