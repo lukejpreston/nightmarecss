@@ -8,13 +8,22 @@ This is a plugin for nightmare so you can do similar things as with phantomcss
 npm i -D nightmarecss
 ```
 
+optional, if you want selectors
+
+```bash
+npm i -D nightmare-screenshot-selector
+```
+
 ## Usage
 
 Example jest test
 
 ```js
 import Nightmare from 'nightmare'
-import NightmareCSS from './nightmarecss'
+import NightmareCSS from 'nightmarecss'
+import screenshotSelector from 'nightmare-screenshot-selector'
+
+Nightmare.action('screenshotSelector', screenshotSelector)
 
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 30 * 1000
 
@@ -51,7 +60,7 @@ if you want to get the default screenshot
 
 `screenshotCompare('google')`
 
-if you want to use a selector
+if you want to use a selector you need to install `nightmare-screenshot-selector`
 
 `screenshotCompare('google-input', '.lst-c')`
 
