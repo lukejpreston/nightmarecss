@@ -1,6 +1,10 @@
 import fs from 'fs-extra'
 import path from 'path'
 import resemble from 'node-resemble-js'
+import Nightmare from 'nightmare'
+import screenshotSelector from 'nightmare-screenshot-selector'
+
+Nightmare.action('screenshotSelector', screenshotSelector)
 
 const compare = ({fsOptions, name, tolerance, rebase, resembleOptions}) => {
   return new Promise((resolve, reject) => {
@@ -52,10 +56,11 @@ module.exports = (options = {}) => {
 
   const names = []
   return (nightmare) => {
-    nightmare.screenshotCompare = (name) => {
+    nightmare.screenshotCompare = (name, selector) => {
       names.push(name)
       const latest = path.join(fsOptions.screenshotDir, `${name}.latest.png`)
-      return nightmare.screenshot(latest)
+      if (selector) return nightmare.screenshotSelector({path: latest, selector})
+      else return nightmare.screenshot(latest)
     }
 
     nightmare.compareAll = () => {

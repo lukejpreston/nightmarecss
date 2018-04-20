@@ -4,7 +4,8 @@
   "description": "A Nightmarecss plugin similar to phantomcss",
   "main": "index.js",
   "scripts": {
-    "test": "eslint ./nightmare*.js && jest",
+    "test": "jest",
+    "ci": "eslint ./nightmare*.js && jest",
     "dist": "babel nightmarecss.js --out-file index.js"
   },
   "keywords": [
@@ -17,21 +18,22 @@
   "author": "Luke Preston <lukejpreston@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "fs-extra": "^4.0.2",
+    "fs-extra": "^4.0.3",
     "nightmare": "^2.10.0",
+    "nightmare-screenshot-selector": "^1.0.2",
     "node-resemble-js": "^0.2.0",
-    "regenerator-runtime": "^0.11.0",
-    "resemblejs": "^2.2.6"
+    "regenerator-runtime": "^0.11.1",
+    "resemblejs": "^2.10.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-jest": "^21.2.0",
-    "babel-preset-env": "^1.6.0",
-    "eslint": "^4.8.0",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.19.1",
     "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-node": "^5.2.0",
-    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.7.0",
     "eslint-plugin-standard": "^3.0.1",
     "jest": "^21.2.1"
   }
